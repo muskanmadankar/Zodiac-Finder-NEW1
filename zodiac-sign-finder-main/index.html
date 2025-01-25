@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiac Signs Finder</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">Zodiac Finder</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#finder">Zodiac Finder</a></li>
+                    
+                    <li><a id="openSignUpForm" href="#">Sign Up</a></li>
+                    <li><a  id="openSignOutForm" href="#">Sign Out</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Confetti Container -->
+    <div id="confettiContainer" class="confetti-hidden"></div>
+
+
+    <main class="haha">
+        <section id="home" class="home-section">
+        <div class="text-content">
+            <h1>Welcome<br> to Zodiac Finder</h1>
+          <div class="pp">  <p>Your journey to the stars begins here. Discover your zodiac sign and explore the universe's secrets.</p>
+                        <p>Your journey to the stars begins here. Discover your zodiac sign and explore the universe's secrets.</p>
+                        </div>
+<button action="finder" class="btn">Get Started</button>
+        </div>
+            <img src="images/zodiac2.png">
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>About Us</h2>
+            <br><br>
+            <p>We are passionate about astrology and aim to bring you closer to the cosmos. Learn more about how your
+                stars align.We are passionate</p> <p>about astrology and aim to bring you closer to the cosmos. Learn mor
+            We are passionate about astrology and aim to bring you closer to the cosmos. Learn mor</p>
+                <p>Our team of experts is dedicated to providing you with accurate and reliable information about your
+                    zodiac sign.</p>
+                    <button id="learnMoreBtn" class="btn">Learn More</button>
+
+                    <!-- Transparent Overlay for More Information -->
+                    <!-- <div class="more-info-overlay" id="moreInfoOverlay">
+                        <div class="more-info-container">
+                            <div class="cartoon-animation">🌟</div>
+                            <h2>More About Zodiac Signs</h2>
+                            <p>Zodiac signs are an integral part of astrology...</p>
+                            <button id="closeOverlayBtn" class="close-btn">Close</button>
+                        </div>
+                    </div> -->
+
+                    <!-- Form Overlay for Zodiac Details -->
+                    <div class="form-overlay" id="moreInfoOverlay">
+                        <div class="form-container">
+                            <div class="cartoon-animation"></div>
+                            <p class="zodiac-info"></p>
+                            <button id="closeOverlayBtn">Close</button>
+                        </div>
+                    </div>
+
+
+        </section>
+
+        <section id="finder" class="finder-section">
+            <h2> Zodiac Finder</h2>
+            <br><br>
+            <div class="card">
+                <h1>Find Your Zodiac Sign</h1>
+                <form onsubmit="findZodiac(event)">
+                    <input type="date" required>
+                    <input type="submit" value="Find Your Zodiac Sign">
+                </form>
+            </div>
+
+<button class="star-btn">
+    ★
+</button>
+
+<!-- Form Overlay -->
+<div class="form-overlay" id="formOverlay">
+    <div class="form-container">
+        <div class="emoji">😊</div>
+        <form>
+            <h2>Subscribe Now</h2>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Sign Out Form Overlay -->
+<div class="signout-form-overlay" id="signoutFormOverlay">
+    <div class="signout-form-container">
+        <div class="signout-emoji">😢</div>
+        <h2>Goodbye!</h2>
+        <p>We hope to see you again soon.</p>
+        <button class="signout-close-btn" id="closeSignOutForm">Close</button>
+    </div>
+</div>
+
+        </section>
+<section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need assistance, feel free to reach out to us.</p>
+    <form action="#" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</section>
+
+      
+
+        <section id="reviews" class="reviews-section">
+            <h2>Reviews</h2>
+            <p>See what others have to say about their experience with Zodiac Finder.</p>
+            <br><br>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <p class="review-text">"Zodiac Finder gave me great insights! Highly recommended!"</p>
+                    <h3 class="reviewer-name">Jane Doe</h3>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Amazing experience! The zodiac finder was accurate and fun!"</p>
+                    <h3 class="reviewer-name">John Smith</h3>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"A must-try! It helped me discover so much about myself."</p>
+                    <h3 class="reviewer-name">Alice Johnson</h3>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Zodiac Finder gave me great insights! Highly recommended!"</p>
+                    <h3 class="reviewer-name">Jane Doe</h3>
+                </div>
+                </div>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <p class="review-text">"Zodiac Finder gave me great insights! Highly recommended!"</p>
+                    <h3 class="reviewer-name">Jane Doe</h3>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Amazing experience! The zodiac finder was accurate and fun!"</p>
+                    <h3 class="reviewer-name">John Smith</h3>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"A must-try! It helped me discover so much about myself."</p>
+                    <h3 class="reviewer-name">Alice Johnson</h3>
+                </div>
+            </div>
+        </section>
+
+    </main>
+<!-- Form Overlay -->
+<div class="signup-form-overlay" id="signupFormOverlay">
+    <div class="signup-form-container">
+        <div class="signup-emoji">🌟</div>
+        <form>
+            <h2>Join Us!</h2>
+            <input type="text" class="signup-input" placeholder="Your Name" required>
+            <input type="email" class="signup-input" placeholder="Your Email" required>
+         <button type="submit" class="signup-submit-btn">Sign Up</button>  
+        </form>
+    </div>
+</div>
+   
+
+
+    <footer>
+        <p>&copy; 2025 Zodiac Finder. All rights reserved.</p>
+    </footer>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

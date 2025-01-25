@@ -1,0 +1,1140 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Confetti Hidden State */
+.confetti-hidden {
+    display: none;
+}
+
+/* Confetti Display State */
+.confetti-show {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* Confetti Piece */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff0;
+    animation: fall 4s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+body, html {
+    font-family: "Open Sans", sans-serif;
+    background: linear-gradient(to right, #000000, #434343);
+    color: white;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(34, 34, 34, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+main {
+    margin-top: 100px;
+    padding: 0 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e90ff;
+    text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff;
+}
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+     margin-left: auto; /* This pushes the links to the right */
+}
+
+.nav-links li {
+    
+    margin-right: 20px;
+    
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #1e90ff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.nav-links a:hover {
+    color: #1e90ff;
+    text-shadow: 0 0 15px #1e90ff, 0 0 30px #1e90ff;
+}
+.haha h1, h2{
+     color:  #1e90ff;
+       text-shadow: 0 0 15px #1e90ff, 0 0 30px #1e90ff;
+}
+#home{
+    /* width: 100%;
+    height: 100vh; */
+    /* text-emphasis: none; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* height: 100%; */
+    height: 100vh;
+    padding: 0 20px;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-in;
+    
+
+}
+.home-section img{
+    /* width: 500px;
+    height: 500px;
+    margin: left; */
+    flex: 1;
+    width: 700px;
+    height: auto;
+    object-fit: cover;
+    padding-bottom: 40px;
+    opacity: 0;
+    animation: slideInFromRight 1s ease-in-out forwards;
+}
+
+.home-section .text-content {
+    flex: 1;
+    padding-right: 20px;
+    padding-bottom: 300px ;
+    padding-left: 130px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in 1s forwards, slideInText 1s ease-out forwards;
+}
+.home-section h1 {
+    font-size: 4rem; /* Adjust the size as needed */
+    color: #1e90ff;
+    text-shadow: 0 0 15px #1e90ff, 0 0 30px #1e90ff;
+    opacity: 0;
+    animation: fadeIn 2s ease-in 0.5s forwards, textGlow 1.5s ease-in-out infinite alternate;
+}
+.home-section .pp {
+    opacity: 0;
+    animation: fadeIn 2s ease-in 1.5s forwards, textSlideUp 1s ease-out forwards;
+}
+
+/* Animation for text, images, and sections */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInText {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff; }
+    100% { text-shadow: 0 0 25px #1e90ff, 0 0 50px #1e90ff, 0 0 75px #1e90ff; }
+}
+
+@keyframes textSlideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@media screen and (max-width: 768px) {
+    #home {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-section img {
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    .home-section .text-content {
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+    .home-section h1 {
+        font-size: 3rem;
+    }
+}
+
+
+
+.section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.home-section, .about-section, .finder-section, .contact-section, .reviews-section {
+    animation: fadeIn 2s ease-in;
+
+}
+.about-section, .finder-section, .contact-section, .reviews-section h2 {
+    text-align: center; /* This should center the text */
+    width: 100%; /* Ensure the element takes full width */
+    margin: 0 auto; /* Center horizontally */
+   
+}
+h2{
+    text-align: center;
+    font-size: 3rem;
+}
+
+.about-section, .contact-section, .reviews-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers content within these sections */
+    justify-content: center; /* Vertically centers content */
+    text-align: center; /* Ensures text inside sections is centered */
+}
+
+
+
+
+#about {
+    width: 100%;
+    height: 50vh;
+}
+#finder{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+}
+#finder h2{
+    text-align: left;
+    padding-left: 200px;
+    padding-top: 260px;
+    font-size: 4rem;
+    opacity: 0;
+        animation: slideInFromLeft 2s ease-in-out forwards;
+
+}
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+#contact{
+    width: 100%;
+    height: 50vh;
+}
+#reviews{
+    width: 100%;
+    height: 50vh;
+}
+
+.card {
+    margin: auto;
+    max-width: 1000px;
+    background-color: #222;
+    padding: 100px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.5);
+    text-align: center;
+    /* opacity: 0;
+    animation: slideInFromRight 3s ease-in-out forwards; */
+    animation: cardGlowAnimation 3s ease-in-out infinite alternate;
+    
+}
+
+input[type="date"], input[type="submit"] {
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+}
+
+input[type="date"] {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #555;
+    transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #1e90ff;
+}
+
+input[type="submit"] {
+    background-color: #1e90ff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #fff;
+    color: #1e90ff;
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    margin-top: 40px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes cardGlowAnimation {
+    0% { box-shadow: 0 0 15px rgba(30, 144, 255, 0.7), 0 0 30px rgba(30, 144, 255, 0.4); }
+    100% { box-shadow: 0 0 25px rgba(30, 144, 255, 1), 0 0 50px rgba(30, 144, 255, 0.8); }
+}
+
+@media screen and (max-width: 576px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+/* General styles for the section */
+.reviews-section {
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #000000, #434343);
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Header styles */
+.reviews-section h2 {
+    font-size: 3rem;
+    color: #1e90ff;
+    text-shadow: 0 0 15px #1e90ff, 0 0 30px #1e90ff;
+    margin-bottom: 40px;
+}
+
+/* Reviews container to hold the cards */
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Individual review card */
+.review-card {
+    background-color: #222;
+    border-radius: 15px;
+    padding: 30px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+    animation: cardGlowAnimation 3s ease-in-out infinite alternate;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for review cards */
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(30, 144, 255, 1), 0 0 50px rgba(30, 144, 255, 0.8);
+}
+
+/* Review text styling */
+.review-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Reviewer name styling */
+.reviewer-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e90ff;
+    text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff;
+}
+
+/* Animation for glowing effect */
+@keyframes cardGlowAnimation {
+    0% {
+        box-shadow: 0 0 15px rgba(30, 144, 255, 0.7), 0 0 30px rgba(30, 144, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(30, 144, 255, 1), 0 0 50px rgba(30, 144, 255, 0.8);
+    }
+}
+
+/* Responsive design for small screens */
+@media screen and (max-width: 768px) {
+    .reviews-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .review-card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* contact us */
+
+/* General styles for the section */
+.contact-section {
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(to right, #000000, #434343);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards, floating 5s ease-in-out infinite;
+}
+
+/* Header styles */
+.contact-section h2 {
+    font-size: 3rem;
+    color: #1e90ff;
+    text-shadow: 0 0 15px #1e90ff, 0 0 30px #1e90ff;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in 0.5s forwards, glowText 1.5s ease-in-out infinite alternate;
+}
+
+/* Contact description */
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: white;
+    opacity: 0;
+    animation: fadeIn 2s ease-in 1s forwards;
+}
+
+/* Contact form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in 1.5s forwards;
+}
+
+/* Input fields and textarea styling */
+input[type="text"], input[type="email"], textarea {
+    background-color: #333;
+    color: white;
+    border: 2px solid #555;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    opacity: 0;
+    animation: slideIn 1s ease-in 2s forwards, glowInput 1.5s ease-in-out infinite alternate;
+}
+
+/* Focus effect for input fields */
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none;
+    border-color: #1e90ff;
+}
+
+/* Submit button styling */
+.submit-btn {
+    background-color: #1e90ff;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    opacity: 0;
+    animation: slideIn 1s ease-in 2.5s forwards, pulseButton 2s ease-in-out infinite;
+}
+
+/* Hover effect for submit button */
+.submit-btn:hover {
+    background-color: #fff;
+    color: #1e90ff;
+    transform: translateY(-3px);
+}
+
+/* Responsive design for small screens */
+@media screen and (max-width: 768px) {
+    .contact-section {
+        padding: 50px 20px;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+/* FadeIn animation for section, heading, paragraph, and form */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* SlideIn animation for form inputs and button */
+@keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Glowing text animation for the heading */
+@keyframes glowText {
+    0% { text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff; }
+    100% { text-shadow: 0 0 25px #1e90ff, 0 0 50px #1e90ff, 0 0 75px #1e90ff; }
+}
+
+/* Glowing border animation for input fields */
+@keyframes glowInput {
+    0% { border-color: #555; }
+    50% { border-color: #1e90ff; }
+    100% { border-color: #555; }
+}
+
+/* Pulsing effect for the submit button */
+@keyframes pulseButton {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Floating effect for the entire section */
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+
+/* button */
+
+/* General button styling */
+.btn, .submit-btn, input[type="submit"] {
+    background-color: #1e90ff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.6); /* Glowing effect */
+}
+
+/* Button hover effect */
+.btn:hover, .submit-btn:hover, input[type="submit"]:hover {
+    background-color: #fff;
+    color: #1e90ff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 16px rgba(30, 144, 255, 1); /* Stronger glowing effect */
+}
+
+/* Focus effect */
+input[type="date"]:focus, input[type="text"]:focus, input[type="email"]:focus, textarea:focus, input[type="submit"]:focus {
+    outline: none;
+    border-color: #1e90ff;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.8); /* Glowing effect on focus */
+}
+
+/* Button for mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .btn, .submit-btn, input[type="submit"] {
+        width: 100%;
+        padding: 15px 20px;
+    }
+}
+
+.about-section .btn{
+    margin-top: 30px;
+}
+
+.text-content .btn{
+    margin-top: 50px;
+}
+.text-content .pp{
+    margin-top: 50px;
+}
+
+
+
+/* Star Button */
+/* Star Button */
+.star-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: 5px solid #4e42f5; /* Purple border */
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 15px 5px rgba(78, 66, 245, 0.8);
+    animation: pulseGlow 2s infinite ease-in-out, moveUp 1s ease-in-out infinite alternate;
+}
+
+.star-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px 10px rgba(78, 66, 245, 1), 0 0 35px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Pulsing and glowing effect for the star */
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 15px 5px rgba(78, 66, 245, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 25px 10px rgba(78, 66, 245, 1), 0 0 35px 15px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 15px 5px rgba(78, 66, 245, 0.8);
+    }
+}
+
+/* Move the button up and down */
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Form Overlay (Hidden by default) */
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dark background */
+    display: none; /* Hidden initially */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+/* Form Container */
+.form-container {
+    background: linear-gradient(45deg, #0000ff, #000000); /* Blue-black gradient */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.6), 0 0 40px rgba(0, 0, 0, 0.5);
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slideIn 0.8s forwards, glow 1.5s infinite alternate;
+    opacity: 0;
+}
+
+/* Smiley Emoji */
+.emoji {
+    font-size: 40px;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+/* Form Fields */
+.form-container h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container button {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #333;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.form-container input:focus,
+.form-container button:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 1);
+}
+
+/* Button */
+.form-container button {
+    background: #4e42f5;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background: #2e2ac8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 0, 255, 0.7), 0 0 60px rgba(0, 0, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Bouncing Smiley */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* login form */
+
+/* General Styles for Overlay */
+.signup-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: signupFadeIn 0.5s forwards;
+}
+
+/* Form Container */
+.signup-form-container {
+    background: linear-gradient(45deg, #0000ff, #000000, #ffffff);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: signupSlideIn 0.8s forwards, signupGlow 1.5s infinite alternate;
+    opacity: 0;
+}
+
+/* Emoji */
+.signup-emoji {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: signupBounce 1.5s infinite;
+}
+
+/* Form Fields */
+.signup-form-container h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.signup-input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    background: #333;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.signup-input:focus {
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 0, 255, 1);
+}
+
+.signup-submit-btn {
+    width: 80%;
+    padding: 12px;
+    background: #4e42f5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.signup-submit-btn:hover {
+    background: #2e2ac8;
+}
+
+/* Animations */
+@keyframes signupFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes signupSlideIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes signupGlow {
+    0% {
+        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 0, 255, 0.7), 0 0 60px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes signupBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* signout */
+
+/* General Styles for Overlays */
+
+
+/* Sign-Out Form Overlay */
+.signout-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Sign-Out Form Container */
+.signout-form-container {
+    background: linear-gradient(45deg, #0000ff, #000000, #ffffff);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    width: 350px;
+    height: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: formSlideIn 0.8s forwards, formGlow 1.5s infinite alternate;
+    opacity: 0;
+}
+
+/* Emoji in Sign-Out Form */
+.signout-emoji {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: formBounce 1.5s infinite;
+}
+
+/* Text in Sign-Out Form */
+.signout-form-container h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.signout-form-container p {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Close Button in Sign-Out Form */
+.signout-close-btn {
+    width: 80%;
+    padding: 12px;
+    background: #4e42f5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.signout-close-btn:hover {
+    background: #2e2ac8;
+}
+
+/* Animations */
+@keyframes formSlideIn {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes formGlow {
+    0% {
+        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 0, 255, 0.7), 0 0 60px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes formBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* learn more */
+
+/* More Info Overlay */
+.more-info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* More Info Container */
+.more-info-container {
+    background: linear-gradient(45deg, #0000ff, #000000);
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    width: 70%;
+    max-width: 600px;
+    animation: fadeInScale 0.8s forwards;
+}
+
+/* Cartoon Animation */
+.cartoon-animation {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: cartoonBounce 1.5s infinite;
+}
+
+/* Close Button */
+.close-btn {
+    background: #0000ff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.close-btn:hover {
+    background: #4e42f5;
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes cartoonBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
